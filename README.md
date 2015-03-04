@@ -16,21 +16,21 @@ Collection of a base classes for Custom WordPress plugins
 
 # Create new module
 
-1. Initialize autoloader for ‘classes’ folder
+Initialize autoloader for ‘classes’ folder
 
     $autoloader = Agp_Autoloader::instance();
     $autoloader->setClassMap(array(
         \__DIR\__ => array('classes')
     ));
 
-2. Create new file ‘classes/myModule.class.php’
+Create new file ‘classes/myModule.class.php’
 
     <?php
     class myModule extends Agp_Module 
     {
     }
 
-3. Enjoy!
+Enjoy!
 
 
 
