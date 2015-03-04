@@ -14,17 +14,13 @@ Collection of a base classes for Custom WordPress plugins
 2. Copy the plugin to your theme / plugin
 3. Include the main plugin file
 
-    if (!class_exists('Agp_Autoloader')) {
-        require_once __DIR__ . '/includes/agp-core/agp-core.php';    
-    }
-
 # Create new module
 
 1. Initialize autoloader for ‘classes’ folder
 
     $autoloader = Agp_Autoloader::instance();
     $autoloader->setClassMap(array(
-        __DIR__ => array('classes')
+        \__DIR\__ => array('classes')
     ));
 
 2. Create new file ‘classes/myModule.class.php’
