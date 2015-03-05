@@ -1,4 +1,4 @@
-=== AGP Wordpress Plugin Core ===
+=== AGP Plugins Core ===
 Contributors: Alexey Golubnichenko
 Tags: custom, plugin, theme, classes
 Requires at least: 3.5.0

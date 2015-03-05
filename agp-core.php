@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: AGP Wordpress Plugin Core
+ * Plugin Name: AGP Plugins Core
  * Plugin URI: https://github.com/AGolubnichenko/agp-core
- * Description: Collection of a base classes for Custom WordPress plugins
+ * Description: Collection of a base classes for custom WordPress plugins
  * Version: 1.0.0
  * Author: Alexey Golubnichenko
  * Author URI: https://github.com/AGolubnichenko
