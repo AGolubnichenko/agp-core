@@ -1,6 +1,6 @@
 === AGP Plugins Core ===
 Contributors: Alexey Golubnichenko
-Tags: custom, plugin, theme, classes
+Tags: agp, custom, plugin, theme, classes
 Requires at least: 3.5.0
 Tested up to: 4.1
 License: GPLv2 or later
