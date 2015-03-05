@@ -14,6 +14,9 @@ abstract class Agp_AjaxAbstract {
         }        
     }
     
+    /**
+     * Request
+     */
     public function request() {
         if (check_ajax_referer('ajax_atf_nonce', 'nonce', false)) {
             $data = $_POST;
@@ -30,7 +33,7 @@ abstract class Agp_AjaxAbstract {
     /**
      * Response
      * 
-     * @param type $data
+     * @param array|object|string $data
      */
     public function response ($data) {
         if (is_array($data)) {
