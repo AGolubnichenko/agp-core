@@ -1,14 +1,14 @@
 # AGP Wordpress Plugin Core
 
-Collection of a base classes for Custom WordPress plugins
+Collection of a base classes for custom WordPress plugins
 
 # Installation
 
-1. Download the AGP Wordpress Plugin Core plugin
-2. Upload ‘agp-core’ to the ‘/wp-content/plugins/’ directory
-3. Activate the plugin through the ‘Plugins’ menu in WordPress
+1. Download a copy of the plugin
+2. Upload "agp-core" to the "/wp-content/plugins/" directory
+3. Activate the plugin through the "Plugins" menu in WordPress
 
-# Include AGP Wordpress Plugin Core in a plugin / theme
+# Include in a plugin / theme
 
 1. Download a copy of the plugin
 2. Copy the plugin to your theme / plugin
@@ -16,18 +16,19 @@ Collection of a base classes for Custom WordPress plugins
 
 # Create new module
 
-Initialize autoloader for ‘classes’ folder
+Initialize autoloader
 
     $autoloader = Agp_Autoloader::instance();
     $autoloader->setClassMap(array(
-        __DIR__ => array('classes'),
+        __DIR__ => array('myClassFolder'),
     ));
 
-Create new file ‘classes/myModule.class.php’
+Create new module ‘myClassFolder/myModule.class.php’
 
     <?php
     class myModule extends Agp_Module 
     {
+        ...
     }
 
 Enjoy!
