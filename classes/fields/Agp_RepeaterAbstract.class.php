@@ -1,4 +1,5 @@
 <?php
+namespace MyNamespace\MySubNamespace\Core;
 
 abstract class Agp_RepeaterAbstract extends Agp_Module {
     

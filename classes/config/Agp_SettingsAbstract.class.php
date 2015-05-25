@@ -1,4 +1,6 @@
 <?php
+namespace MyNamespace\MySubNamespace\Core;
+
 /**
  * Settings page abstract class
  */

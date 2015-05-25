@@ -1,4 +1,5 @@
 <?php
+namespace MyNamespace\MySubNamespace\Core;
 
 class Agp_Curl {
     

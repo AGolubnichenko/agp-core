@@ -1,4 +1,6 @@
 <?php
+namespace MyNamespace\MySubNamespace\Core;
+
 interface Agp_ExceptionInterface
 {
     /* Protected methods inherited from Exception class */
