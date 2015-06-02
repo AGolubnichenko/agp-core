@@ -132,10 +132,8 @@ abstract class Agp_SettingsAbstract extends Agp_ConfigAbstract {
                         case 'colorpicker':
                             $input[$key] = stripslashes(esc_attr(trim($value)));    
                             break;                        
-                        case 'textarea':                            
-                            $input[$key] = $value;    
-                            break;                                                
                         default:
+                            $input[$key] = $value;
                             break;
                     }
                 }
