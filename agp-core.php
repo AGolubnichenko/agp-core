@@ -1,4 +1,12 @@
 <?php
+/**
+ * Collection of a base classes for a custom WordPress plugins
+ * 
+ * @version 1.0.0
+ * @author Alexey Golubnichenko <profosbox@gmail.com>
+ * @package AGPCore
+ */
+
 /*  Copyright 2015  Alexey Golubnichenko  (email : profosbox@gmail.com)
 
     This program is free software; you can redistribute it and/or modify
