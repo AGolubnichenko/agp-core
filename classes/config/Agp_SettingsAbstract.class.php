@@ -48,23 +48,7 @@ abstract class Agp_SettingsAbstract extends Agp_ConfigAbstract {
     public function __construct( $data ) {    
         parent::__construct($data);
         
-        if (!empty($this->getConfig()->admin->options->page)) {        
-            $this->page = $this->getConfig()->admin->options->page;
-        }
-        
-        if (!empty($this->getConfig()->admin->options->tabs)) {        
-            $this->tabs = $this->objectToArray($this->getConfig()->admin->options->tabs);
-        }            
-        
-        if (!empty($this->getConfig()->admin->options->fields)) {        
-            $this->fields = $this->objectToArray($this->getConfig()->admin->options->fields);
-        }                    
-        
-        if (!empty($this->getConfig()->admin->options->fieldSet)) {        
-            $this->fieldSet = $this->objectToArray($this->getConfig()->admin->options->fieldSet);
-        }                            
-       
-        $this->settings = $this->getOptions();
+        $this->refreshConfig();
         
         add_action( 'admin_init', array( $this, 'registerSettings' ) );        
         add_action( 'admin_menu', array( $this, 'adminMenu' ) ); 
@@ -113,6 +97,25 @@ abstract class Agp_SettingsAbstract extends Agp_ConfigAbstract {
         }
     }
     
+    public function refreshConfig() {
+        if (!empty($this->getConfig()->admin->options->page)) {        
+            $this->page = $this->getConfig()->admin->options->page;
+        }
+        
+        if (!empty($this->getConfig()->admin->options->tabs)) {        
+            $this->tabs = $this->objectToArray($this->getConfig()->admin->options->tabs);
+        }            
+        
+        if (!empty($this->getConfig()->admin->options->fields)) {        
+            $this->fields = $this->objectToArray($this->getConfig()->admin->options->fields);
+        }                    
+        
+        if (!empty($this->getConfig()->admin->options->fieldSet)) {        
+            $this->fieldSet = $this->objectToArray($this->getConfig()->admin->options->fieldSet);
+        }                            
+       
+        $this->settings = $this->getOptions();
+    }
     
     /**
      * Recursive callable apply 
