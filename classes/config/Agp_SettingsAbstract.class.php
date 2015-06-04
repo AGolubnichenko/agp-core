@@ -113,6 +113,25 @@ abstract class Agp_SettingsAbstract extends Agp_ConfigAbstract {
         }
     }
     
+    
+    /**
+     * Recursive callable apply 
+     * 
+     * @param mix $value
+     * @return mix
+     */
+    public function getRecursiveCallable ($value) {
+        $result = $value;
+        if (is_callable($value)) {
+            $result =  call_user_func($value);
+        } elseif (is_array($value)) {
+            foreach ($value as $k => $v) {
+                $result[$k] = $this->getRecursiveCallable($v);
+            }
+        }
+        return $result;
+    }            
+    
     /**
      * Sanitixe settings
      * 
@@ -194,7 +213,7 @@ abstract class Agp_SettingsAbstract extends Agp_ConfigAbstract {
                 }
             }    
         } 
-        return $result;
+        return $this->getRecursiveCallable( $result );
     }
     
     /**
@@ -224,10 +243,10 @@ abstract class Agp_SettingsAbstract extends Agp_ConfigAbstract {
     public function getFields($key = NULL) {
         if (!empty($key)) {
             if (!empty($this->fields[$key])) {
-                return $this->fields[$key];
+                return $this->getRecursiveCallable( $this->fields[$key] );
             }
         } else {
-            return $this->fields;
+            return $this->getRecursiveCallable( $this->fields );
         }                
     }
 
@@ -240,10 +259,10 @@ abstract class Agp_SettingsAbstract extends Agp_ConfigAbstract {
     public function getFieldSet($key = NULL) {
         if (!empty($key)) {
             if (!empty($this->fieldSet[$key])) {
-                return $this->fieldSet[$key];
+                return $this->getRecursiveCallable( $this->fieldSet[$key] );
             }
         } else {
-            return $this->fieldSet;
+            return $this->getRecursiveCallable( $this->fieldSet );
         }                        
     }
 
@@ -256,10 +275,10 @@ abstract class Agp_SettingsAbstract extends Agp_ConfigAbstract {
     public function getSettings($key = NULL) {
         if (!empty($key)) {
             if (!empty($this->settings[$key])) {
-                return $this->settings[$key];
+                return $this->getRecursiveCallable( $this->settings[$key] );
             }
         } else {
-            return $this->settings;
+            return $this->getRecursiveCallable( $this->settings );
         }        
     }
     
