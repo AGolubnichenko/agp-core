@@ -1,5 +1,3 @@
-var agp_repeater = {};
-
 (function($) {  
     $(document).ready(function() { 
         $(document).on('click', '.agp-del-row', function(e) {
@@ -19,12 +17,10 @@ var agp_repeater = {};
         });                    
         
         $(document).on('click', '.agp-add-row', function(e) {        
-            var id = 'rp_' + $(this).closest('.agp-repeater').data('id');
             var content = $(this).closest('.agp-repeater').find('.agp-row.agp-row-template').html();
-
-            agp_repeater[id].index = agp_repeater[id].index + 1;
-
-            content = '<tr class="agp-row">' + content.replace(/\[0\]/g, '[' + agp_repeater[id].index + ']').replace(/_0_/g, '_' + agp_repeater[id].index + '_') + '</tr>';
+            var index = 'xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {var r = Math.random()*16|0,v=c=='x'?r:r&0x3|0x8;return v.toString(16);});
+            
+            content = '<tr class="agp-row">' + content.replace(/\[0\]/g, '[' + index + ']').replace(/_0_/g, '_' + index + '_') + '</tr>';
 
             $(this).closest('.agp-repeater').find('tbody').append(content);
         });
