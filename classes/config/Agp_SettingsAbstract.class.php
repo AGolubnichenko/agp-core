@@ -125,7 +125,7 @@ abstract class Agp_SettingsAbstract extends Agp_ConfigAbstract {
      */
     public function getRecursiveCallable ($value) {
         $result = $value;
-        if (is_callable($value)) {
+        if (is_callable($value) && is_array($value)) {
             $result =  call_user_func($value);
         } elseif (is_array($value)) {
             foreach ($value as $k => $v) {
