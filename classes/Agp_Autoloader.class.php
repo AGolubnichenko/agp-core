@@ -72,12 +72,14 @@ class Agp_Autoloader {
                 }
             }
             
-            if (!empty($this->classes) && array_key_exists($class, $this->classes)) {
+            if (!empty($this->classes)) {
                 
-                $file = $this->baseDir . $this->classes[$class];
-                if ( file_exists($file) && is_file($file) ) {
-                    require_once $file;
-                    return;    
+                if ( array_key_exists($class, $this->classes) ) {
+                    $file = $this->baseDir . $this->classes[$class];
+                    if ( file_exists($file) && is_file($file) ) {
+                        require_once $file;
+                        return;    
+                    }                    
                 }
                 
             } else {
@@ -112,7 +114,7 @@ class Agp_Autoloader {
                         }
                     }
                 }
-
+                
                 foreach ($this->classMap as $path => $value) {
                     $maps = array();
                     if (is_array($value)) {
