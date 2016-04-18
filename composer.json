@@ -1,0 +1,14 @@
+{
+    "name": "agolubnichenko/agp-core",
+    "description": "Collection of a base classes for custom WordPress plugins",
+    "authors": [
+        {
+            "name": "Alexey Golubnichenko",
+            "email": "profosbox@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
