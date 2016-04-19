@@ -1,7 +1,7 @@
 <?php
 namespace Agp\Core;
 
-abstract class Module {
+abstract class ModuleAbstract {
     
     /**
      * Base module directory
