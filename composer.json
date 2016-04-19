@@ -13,9 +13,6 @@
         "php": ">=5.3.0"
     },
     "autoload": {
-        "files": [
-            "src/agp-core.php"
-        ],
         "psr-4": {
             "Agp\\Core\\": "src/classes/"
         }
