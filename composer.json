@@ -16,11 +16,5 @@
         "files": [
             "src/agp-core.php"
         ]
-    },
-    "autoload-dev": {
-        "files": [
-            "src/agp-core.php"
-        ]
-    }    
-    
+    }
 }
