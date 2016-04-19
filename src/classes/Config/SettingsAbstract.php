@@ -296,10 +296,37 @@ abstract class SettingsAbstract extends ConfigAbstract {
 
         global $pagenow;
 
-        if ( $pagenow == 'admin.php' && isset($_REQUEST['is-reset']) && !isset($_REQUEST['settings-updated']) && $_REQUEST['page'] == $this->page) {
+        if ( $pagenow == 'admin.php' && isset($_REQUEST['is-reset']) && !isset($_REQUEST['settings-updated']) && $_REQUEST['page'] == $this->getPage()) {
             $message = 'Settings reset to default values';
-            echo '<div class="updated settings-error" id="setting-error-settings_updated"><p><strong>'.$message.'</strong></p></div>';            
+            echo '<div class="updated settings-error notice is-dismissible" id="setting-error-settings_updated"><p><strong>'.$message.'</strong></p>'
+                . '<button class="notice-dismiss" type="button">
+                    <span class="screen-reader-text">Dismiss this notice.</span>
+                   </button>'
+                . '</div>';            
         }
+        
     }        
+    
+    public function escape ( &$value, $key = NULL ) {
+        if ( is_array( $value ) ) {
+            array_walk( $value, array( $this, 'escape' ) );
+        } else {
+            $value = htmlspecialchars($value);
+        }        
+    }
+
+    public function unescape ( &$value, $key = NULL ) {
+        if ( is_array( $value ) ) {
+            array_walk( $value, array( $this, 'unescape' ) );
+        } else {
+            $value = htmlspecialchars_decode($value);
+        }        
+    }
+    
+    public function getUnEscapedSettings($key = NULL) {
+        $settings = $this->getSettings($key);
+        $this->unescape($settings);
+        return $settings;        
+    }    
 
 }

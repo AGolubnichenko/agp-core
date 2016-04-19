@@ -1,6 +1,7 @@
 {
     "name": "agolubnichenko/agp-core",
     "description": "Collection of a base classes for custom WordPress plugins",
+    "keywords": [ "wordpress", "agp", "plugin", "theme", "class", "core" ],
     "homepage": "https://github.com/AGolubnichenko/agp-core/",
     "authors": [
         {

@@ -47,4 +47,13 @@ abstract class AjaxAbstract {
         }
         die();
     }
+    
+//    public function getExampleAction ($data) {
+//        $result = array();
+//
+//        //TODO : Do Something
+//        $result['example'] = 'Something';
+//
+//        return $result; 
+//    }        
 }
