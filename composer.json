@@ -13,6 +13,8 @@
         "php": ">=5.3.0"
     },
     "autoload": {
-        "classmap": ["src/agp-core.php"]
+        "files": [
+            "src/agp-core.php"
+        ]
     }
 }
