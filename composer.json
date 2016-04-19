@@ -15,6 +15,9 @@
     "autoload": {
         "files": [
             "src/agp-core.php"
-        ]
+        ],
+        "psr-4": {
+            "Agp\\Core\\": "src/classes/"
+        }
     }
 }
