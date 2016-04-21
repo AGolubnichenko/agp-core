@@ -1,7 +1,7 @@
 <?php
-namespace Awb\Core;
+namespace Agp\Core;
 
-use Awb\Core\Config\SettingsAbstract;
+use Agp\Core\Config\SettingsAbstract;
 
 class Settings extends SettingsAbstract {
     

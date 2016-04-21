@@ -1,5 +1,5 @@
 <?php
-namespace Awb\Core;
+namespace Agp\Core;
 
 class Agp extends ModuleAbstract {
 
