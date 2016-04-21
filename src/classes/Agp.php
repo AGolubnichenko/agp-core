@@ -62,6 +62,8 @@ class Agp extends ModuleAbstract {
     }        
     
     public function enqueueAdminScripts () {
+        wp_register_style( 'agp-options-css', $this->getAssetUrl('css/agp-options.css') );           
+        wp_enqueue_style( 'agp-options-css' );                    
     }
 
     public function getVersion() {
