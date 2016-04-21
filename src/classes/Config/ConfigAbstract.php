@@ -8,7 +8,7 @@ abstract class ConfigAbstract {
     /**
      * Constructor
      */
-    public function __construct( array $data ) {    
+    public function __construct( $data = array() ) {    
         $this->data = $data;
     }
     
