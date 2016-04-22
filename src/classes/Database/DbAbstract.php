@@ -1,6 +1,8 @@
 <?php
 namespace Agp\Core\Database;
 
+use Agp\Core\Error\DbConnectException;
+
 abstract class DbAbstract {
     
     abstract public function connect(); 
@@ -17,7 +19,7 @@ abstract class DbAbstract {
             return $result;
         } else {
             $this->disconnect();
-            throw new Agp_DbConnectException('Cannot establish connection to database.', $errNo);
+            throw new DbConnectException('Cannot establish connection to database.', $errNo);
         }
     }
 }
