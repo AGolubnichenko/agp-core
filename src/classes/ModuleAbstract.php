@@ -113,7 +113,8 @@ abstract class ModuleAbstract {
         
         $this->setBaseDir($baseDir);
         
-        add_action( 'init', array($this, 'init' ));       
+        add_action( 'init', array($this, 'init' ) );       
+        add_action( 'customize_preview_init', array($this, 'init' ) );                
     }
     
     public function init() {
