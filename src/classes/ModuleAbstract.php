@@ -122,7 +122,7 @@ abstract class ModuleAbstract {
     
     public function applyLessCss() {
         $config = array();
-        if ( !empty($this->getSettings()->getConfig()->admin->style) ) {
+        if ( !empty($this->settings) && !empty($this->getSettings()->getConfig()->admin->style) ) {
             $config = $this->getSettings()->objectToArray( $this->getSettings()->getConfig()->admin->style );   
         }                        
         
