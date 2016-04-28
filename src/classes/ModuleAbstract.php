@@ -227,15 +227,57 @@ abstract class ModuleAbstract {
         }        
     }
 
-    static public function getFiltersForHook( $hook = '' ) {
+    static public function getFiltersForHook( $hook = '', $echo = true ) {
         global $wp_filter;
-        if( empty( $hook ) || !isset( $wp_filter[$hook] ) )
-            return;
 
-        print '<pre>';
-        print_r( $wp_filter[$hook] );
-        print '</pre>';
-    }
+        $hooks = isset( $wp_filter[$hook] ) ? $wp_filter[$hook] : array();  
+        $hooks = call_user_func_array( 'array_merge', $hooks );
+
+        foreach( $hooks as &$item ) {
+            // function name as string or static class method eg. 'Foo::Bar'
+            if ( is_string( $item['function'] ) ) { 
+                $ref = strpos( $item['function'], '::' ) ? new \ReflectionClass( strstr( $item['function'], '::', true ) ) : new \ReflectionFunction( $item['function'] );
+                $item['file'] = $ref->getFileName();
+                $item['line'] = get_class( $ref ) == 'ReflectionFunction' 
+                    ? $ref->getStartLine() 
+                    : $ref->getMethod( substr( $item['function'], strpos( $item['function'], '::' ) + 2 ) )->getStartLine();
+
+            // array( object, method ), array( string object, method ), array( string object, string 'parent::method' )
+            } elseif ( is_array( $item['function'] ) ) {
+
+                $ref = new \ReflectionClass( $item['function'][0] );
+
+                // $item['function'][0] is a reference to existing object
+                $item['function'] = array(
+                    is_object( $item['function'][0] ) ? get_class( $item['function'][0] ) : $item['function'][0],
+                    $item['function'][1]
+                );
+                $item['file'] = $ref->getFileName();
+                $item['line'] = strpos( $item['function'][1], '::' )
+                    ? $ref->getParentClass()->getMethod( substr( $item['function'][1], strpos( $item['function'][1], '::' ) + 2 ) )->getStartLine()
+                    : $ref->getMethod( $item['function'][1] )->getStartLine();
+
+            // closures
+            } elseif ( is_callable( $item['function'] ) ) {     
+                $ref = new \ReflectionFunction( $item['function'] );         
+                $item['function'] = get_class( $item['function'] );
+                $item['file'] = $ref->getFileName();
+                $item['line'] = $ref->getStartLine();
+
+            }       
+        }
+        
+        if (!$echo) {
+            ob_start();
+        }
+        print_r('<pre>');
+        print_r($hooks);
+        print_r('</pre>');
+        if (!$echo) {
+            $result = ob_get_clean();
+            return $result;
+        }        
+    }  
 
     /**
      * Gets url for the specified file path
