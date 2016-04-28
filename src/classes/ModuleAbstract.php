@@ -227,6 +227,16 @@ abstract class ModuleAbstract {
         }        
     }
 
+    static public function getFiltersForHook( $hook = '' ) {
+        global $wp_filter;
+        if( empty( $hook ) || !isset( $wp_filter[$hook] ) )
+            return;
+
+        print '<pre>';
+        print_r( $wp_filter[$hook] );
+        print '</pre>';
+    }
+
     /**
      * Gets url for the specified file path
      * 
