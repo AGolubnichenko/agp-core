@@ -4,7 +4,11 @@ Collection of a base classes for a custom WordPress plugins
 
 Changelog 
 ---
+#### 2.0.1
+* Updated version of "oyejorge/less.php" library to "1.7.0.10"
+* Minor changes
 
 #### 2.0.0
-* added: Ability to install via Composer
-* modify: Code refactoring
+* Added ability to install via Composer
+* Code refactoring
+
