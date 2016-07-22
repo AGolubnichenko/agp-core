@@ -1,9 +1,9 @@
 <?php
 namespace Agp\Core\Fields;
 
-use Agp\Core\Module;
+use Agp\Core\ModuleAbstract;
 
-abstract class RepeaterAbstract extends Module {
+abstract class RepeaterAbstract extends ModuleAbstract {
     
     private $id;
     
